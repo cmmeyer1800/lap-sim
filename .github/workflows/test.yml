@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  MacOS Test:
+  MacOS-Test:
 
     runs-on: macos-latest
     steps:
@@ -19,7 +19,7 @@ jobs:
           make clean
           make test
           ./test
-  Ubuntu Test:
+  Ubuntu-Test:
 
     runs-on: ubuntu-latest
     steps:

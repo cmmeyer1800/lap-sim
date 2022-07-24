@@ -1,13 +1,14 @@
 #include "csv.h"
+#include <vector>
+#include <iostream>
 
 
 int main(int argc, char* argv[]){
     CSVReader csv("test.txt");
 
-    std::string * val = csv.to_string();
+    csv.pprint();
 
-    std::cout << *val << std::endl;
+    std::vector<std::vector<double>> d = csv.get_array_double();
 
-    free(val);
     return 0;
 }
