@@ -1,29 +1,26 @@
 #pragma once
 
-#include <iostream>
 #include <fstream>
+#include <iostream>
 #include <string>
 #include <vector>
 
-
 class CSVReader {
-    public:
+ public:
+  CSVReader(std::string filepath);
 
-        CSVReader(std::string filepath);
+  std::vector<std::vector<std::string>> get_array();
 
-        std::vector<std::vector<std::string>> get_array();
+  std::vector<std::vector<double>> get_array_double();
 
-        std::vector<std::vector<double>> get_array_double();
+  void pprint();
 
-        void pprint();
+ private:
+  std::vector<std::string> headers;
 
-    private:
+  std::vector<std::vector<std::string>> load_array();
 
-        std::vector<std::string> headers;
+  std::ifstream file;
 
-        std::vector<std::vector<std::string>> load_array();
-
-        std::ifstream file;
-
-        std::vector<std::vector<std::string>> array;
+  std::vector<std::vector<std::string>> array;
 };

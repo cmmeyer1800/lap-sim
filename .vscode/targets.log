@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Sun Jul 24 15:07:43 2022
+# Make data base, printed on Sun Jul 24 16:50:57 2022
 
 # Variables
 
@@ -25,7 +25,7 @@ TEST_EXEC := test
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # makefile (from `Makefile', line 33)
-CPPFLAGS := -I./src -I./src/csv -I./src/catch  -MMD -MP -std=c++17 -O3
+CPPFLAGS := -I./src -I./src/str_tools -I./src/csv -I./src/catch  -MMD -MP -std=c++17 -O3
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # automatic
@@ -39,9 +39,9 @@ VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupp
 # environment
 _ = /usr/bin/make
 # makefile (from `Makefile', line 27)
-INC_DIRS := ./src ./src/csv ./src/catch
-# makefile (from `build/./src/main.cpp.d', line 1)
-MAKEFILE_LIST :=  Makefile build/./src/csv/csv.cpp.d build/./src/main.cpp.d
+INC_DIRS := ./src ./src/str_tools ./src/csv ./src/catch
+# makefile (from `build/./src/catch/catchmain.cpp.d', line 1)
+MAKEFILE_LIST :=  Makefile build/./src/str_tools/str_tools.cpp.d build/./src/csv/csv.cpp.d build/./src/main.cpp.d build/./src/test.cpp.d build/./src/catch/catchmain.cpp.d
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
@@ -71,7 +71,7 @@ DISPLAY = /private/tmp/com.apple.launchd.F8XGqBu3W3/org.xquartz:0
 # makefile (from `Makefile', line 23)
 MAIN_DEP := ./build/./src/main.cpp.d
 # makefile (from `Makefile', line 16)
-OBJS := ./build/./src/csv/csv.cpp.o
+OBJS := ./build/./src/str_tools/str_tools.cpp.o ./build/./src/csv/csv.cpp.o
 # makefile (from `Makefile', line 6)
 SRC_DIRS := ./src
 # makefile (from `Makefile', line 10)
@@ -79,7 +79,7 @@ MAIN_SRC := ./src/main.cpp
 # environment
 PWD = /Users/collin/code/lap_sim
 # makefile (from `Makefile', line 29)
-INC_FLAGS := -I./src -I./src/csv -I./src/catch 
+INC_FLAGS := -I./src -I./src/str_tools -I./src/csv -I./src/catch 
 # environment
 HOMEBREW_CELLAR = /opt/homebrew/Cellar
 # environment
@@ -113,7 +113,7 @@ MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # makefile (from `Makefile', line 12)
-SRCS := ./src/csv/csv.cpp
+SRCS := ./src/str_tools/str_tools.cpp ./src/csv/csv.cpp
 # environment
 SHLVL = 1
 # makefile (from `Makefile', line 5)
@@ -175,7 +175,7 @@ LC_ALL = C
 # automatic
 ^F = $(notdir $^)
 # makefile (from `Makefile', line 22)
-DEPS := ./build/./src/csv/csv.cpp.d
+DEPS := ./build/./src/str_tools/str_tools.cpp.d ./build/./src/csv/csv.cpp.d
 # default
 SUFFIXES := 
 # default
@@ -185,9 +185,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 84751
+VSCODE_PID = 721
 # variable set hash-table stats:
-# Load=86/1024=8%, Rehash=0, Collisions=16/147=11%
+# Load=86/1024=8%, Rehash=0, Collisions=16/153=10%
 
 # Pattern-specific Variable Values
 
@@ -195,9 +195,9 @@ VSCODE_PID = 84751
 
 # Directories
 
-# . (device 16777233, inode 27468304): 10 files, no impossibilities.
+# . (device 16777233, inode 27468304): 12 files, no impossibilities.
 
-# 10 files, no impossibilities in 1 directories.
+# 12 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -215,7 +215,7 @@ build/%.cpp.o: %.cpp
 build/./src/main.cpp.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-07-23 21:51:52
+#  Last modified 2022-07-24 16:40:33
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -234,6 +234,22 @@ all:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+
+# Not a target:
+src/catch/catchmain.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+build/./src/str_tools/str_tools.cpp.d:
+#  A default, MAKEFILES, or -include/sinclude makefile.
+#  Implicit rule search has been done.
+#  Last modified 2022-07-24 16:39:41
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 .SUFFIXES:
@@ -264,19 +280,20 @@ Makefile:
 build/./src/test.cpp.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  File does not exist.
+#  Last modified 2022-07-24 16:43:36
 #  File has been updated.
-#  Failed to be updated.
+#  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-build/./src/csv/csv.cpp.o: src/csv/csv.cpp src/csv/csv.h
+build/./src/csv/csv.cpp.o: src/csv/csv.cpp src/csv/csv.h src/str_tools/str_tools.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
-test: build/./src/csv/csv.cpp.o build/./src/test.cpp.o build/./src/catch/catchmain.cpp.o
+test: build/./src/str_tools/str_tools.cpp.o build/./src/csv/csv.cpp.o build/./src/test.cpp.o build/./src/catch/catchmain.cpp.o
 #  Implicit rule search has not been done.
+ 
 #  Modification time never checked.
 #  File has not been updated.
 #  commands to execute (from `Makefile', line 43):
@@ -292,26 +309,34 @@ build/./src/main.cpp.o: src/main.cpp src/csv/csv.h
 build/./src/catch/catchmain.cpp.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  File does not exist.
+#  Last modified 2022-07-24 16:39:49
 #  File has been updated.
-#  Failed to be updated.
+#  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-# Not a target:
-build/./src/test.cpp.o:
+build/./src/str_tools/str_tools.cpp.o: src/str_tools/str_tools.cpp src/str_tools/str_tools.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+build/./src/test.cpp.o: src/test.cpp src/catch/catch.hpp src/csv/csv.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 # Not a target:
 .DEFAULT:
- 
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
 src/csv/csv.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+src/catch/catch.hpp:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -330,6 +355,7 @@ clean:
 #  commands to execute (from `Makefile', line 54):
 	rm -r $(BUILD_DIR)
 	rm $(TARGET_EXEC)
+	rm $(TEST_EXEC)
 	
 
 # Not a target:
@@ -338,19 +364,35 @@ src/main.cpp:
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-build/./src/catch/catchmain.cpp.o:
+build/./src/catch/catchmain.cpp.o: src/catch/catchmain.cpp src/catch/catch.hpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
-main: build/./src/csv/csv.cpp.o build/./src/main.cpp.o
+main: build/./src/str_tools/str_tools.cpp.o build/./src/csv/csv.cpp.o build/./src/main.cpp.o
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 #  commands to execute (from `Makefile', line 40):
 	$(CXX) $(OBJS) $(MAIN_OBJ) -o $@ $(LDFLAGS)
 	
+
+src/str_tools/str_tools.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/str_tools/str_tools.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/test.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 install:
 #  Phony target (prerequisite of .PHONY).
@@ -366,25 +408,25 @@ install:
 build/./src/csv/csv.cpp.d:
 #  A default, MAKEFILES, or -include/sinclude makefile.
 #  Implicit rule search has been done.
-#  Last modified 2022-07-23 21:51:52
+#  Last modified 2022-07-24 16:39:42
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # files hash-table stats:
-# Load=21/1024=2%, Rehash=0, Collisions=2/52=4%
+# Load=28/1024=3%, Rehash=0, Collisions=2/73=3%
 # VPATH Search Paths
 
 # No `vpath' search paths.
 
 # No general (`VPATH' variable) search path.
 
-# # of strings in strcache: 5
+# # of strings in strcache: 6
 # # of strcache buffers: 1
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
-# strcache free: total = 3981 / max = 3981 / min = 3981 / avg = 3981
+# strcache free: total = 3943 / max = 3943 / min = 3943 / avg = 3943
 
-# Finished Make data base on Sun Jul 24 15:07:43 2022
+# Finished Make data base on Sun Jul 24 16:50:57 2022
 
  

@@ -1,9 +1,11 @@
 make --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/collin/code/lap_sim'
+mkdir -p build/./src/str_tools/
+clang++ -I./src -I./src/str_tools -I./src/csv -I./src/catch  -MMD -MP -std=c++17 -O3 -D'FILEPATH='  -c src/str_tools/str_tools.cpp -o build/./src/str_tools/str_tools.cpp.o
 mkdir -p build/./src/csv/
-clang++ -I./src -I./src/csv -I./src/catch  -MMD -MP -std=c++17 -O3 -D'FILEPATH='  -c src/csv/csv.cpp -o build/./src/csv/csv.cpp.o
+clang++ -I./src -I./src/str_tools -I./src/csv -I./src/catch  -MMD -MP -std=c++17 -O3 -D'FILEPATH='  -c src/csv/csv.cpp -o build/./src/csv/csv.cpp.o
 mkdir -p build/./src/
-clang++ -I./src -I./src/csv -I./src/catch  -MMD -MP -std=c++17 -O3 -D'FILEPATH='  -c src/main.cpp -o build/./src/main.cpp.o
-clang++ ./build/./src/csv/csv.cpp.o ./build/./src/main.cpp.o -o main 
+clang++ -I./src -I./src/str_tools -I./src/csv -I./src/catch  -MMD -MP -std=c++17 -O3 -D'FILEPATH='  -c src/main.cpp -o build/./src/main.cpp.o
+clang++ ./build/./src/str_tools/str_tools.cpp.o ./build/./src/csv/csv.cpp.o ./build/./src/main.cpp.o -o main 
 make: Leaving directory `/Users/collin/code/lap_sim'
  
