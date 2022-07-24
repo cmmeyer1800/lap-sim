@@ -26,7 +26,7 @@ def main() -> None:
                     print(f"\t\t - {file}")
                     subprocess.run(["clang-format", "-style=google", "-i", file])
 
-    print("\t<Running Automatic Code Formatter Over Repo>")
+    print("\t</Running Automatic Code Formatter Over Repo>")
 
     print("\t<Adding Formatter Changes>")
     print("\t\tgit add .")
