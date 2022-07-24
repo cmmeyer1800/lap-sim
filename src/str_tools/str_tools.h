@@ -1,10 +1,10 @@
 #pragma once
 
-#include <vector>
 #include <string>
-
+#include <vector>
 
 class StrTools {
-    public:
-        static std::vector<std::string> str_split (std::string s, std::string delimiter);
+ public:
+  static std::vector<std::string> str_split(std::string s,
+                                            std::string delimiter);
 };

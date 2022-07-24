@@ -26,8 +26,17 @@ def main() -> None:
                     subprocess.run(["clang-format", "-style=google", "-i", file])
 
     print("\t</Complete>")
+
+    print("<Adding Changes>")
+    subprocess.run(["git", "add", "."])
+    print("</Adding Changes>")
+
+    print("<Commiting Changes>")
+    subprocess.run(["git", "commit", "--no-verify", "-m\"Adding Auto-Formatter Changes\""])
+    print("</Commiting Changes>")
     
     print("</committing>\n")
+
 
 
 main()
