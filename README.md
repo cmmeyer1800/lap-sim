@@ -1,4 +1,4 @@
-# lap_sim
+# lap-sim
 
 [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 [![Platform Support](https://img.shields.io/badge/Platform-MacOS%20&%20Ubuntu-lightgrey.svg)]()
