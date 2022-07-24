@@ -32,7 +32,7 @@ def main() -> None:
     print("\t</Adding Changes>")
 
     print("\t<Commiting Changes>")
-    subprocess.run(["git", "commit", "--no-verify", "-m\"Adding Auto-Formatter Changes\""])
+    #subprocess.run(["git", "commit", "--no-verify", "-m\"Adding Auto-Formatter Changes\""])
     print("\t</Commiting Changes>")
     
     print("</committing>\n")
