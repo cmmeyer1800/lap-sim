@@ -23,17 +23,15 @@ def main() -> None:
                 if file.find(".") == -1:
                     continue
                 else:
+                    print(f"\t\t -{file}")
                     subprocess.run(["clang-format", "-style=google", "-i", file])
 
-    print("\t</Complete>")
+    print("\t<Running Automatic Code Formatter Over Repo>")
 
-    print("\t<Adding Changes>")
+    print("\t<Adding Formatter Changes>")
+    print("\t\tgit add .")
     subprocess.run(["git", "add", "."])
-    print("\t</Adding Changes>")
-
-    print("\t<Commiting Changes>")
-    #subprocess.run(["git", "commit", "--no-verify", "-m\"Adding Auto-Formatter Changes\""])
-    print("\t</Commiting Changes>")
+    print("\t</Adding Formatter Changes>")
     
     print("</committing>\n")
 
