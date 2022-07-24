@@ -23,7 +23,7 @@ def main() -> None:
                 if file.find(".") == -1:
                     continue
                 else:
-                    print(f"\t\t -{file}")
+                    print(f"\t\t - {file}")
                     subprocess.run(["clang-format", "-style=google", "-i", file])
 
     print("\t<Running Automatic Code Formatter Over Repo>")
