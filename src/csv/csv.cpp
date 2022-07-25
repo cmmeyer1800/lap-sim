@@ -5,10 +5,13 @@
 #include <string>
 #include <vector>
 
+#include "errors.h"
 #include "str_tools.h"
 
-CSVReader::CSVReader(std::string filepath) {
-  file = std::ifstream(filepath);
+CSVReader::CSVReader(std::string _filepath_) {
+  filepath = _filepath_;
+
+  file = std::ifstream(_filepath_);
 
   array = load_array();
 };
@@ -34,7 +37,7 @@ std::vector<std::vector<std::string>> CSVReader::load_array() {
       idx++;
     }
   } else {
-    std::cout << "File Not Open!" << std::endl;
+    throw FileNotOpen(filepath);
   }
 
   return vals;

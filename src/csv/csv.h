@@ -23,4 +23,6 @@ class CSVReader {
   std::ifstream file;
 
   std::vector<std::vector<std::string>> array;
+
+  std::string filepath;
 };
