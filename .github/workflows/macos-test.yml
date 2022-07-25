@@ -1,0 +1,19 @@
+name: Unit Tests
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  MacOS-Test:
+
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Test with catch2
+        shell: bash
+        run: |
+          make clean
+          make test
+          ./test
